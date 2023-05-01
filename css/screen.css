@@ -1,0 +1,996 @@
+/*---------------------------------------/*
+ # Imports
+/*---------------------------------------*/
+/*---------------------------------------/*
+ # TOOLS
+/*---------------------------------------*/
+/*---------------------------------------/*
+ # SETTINGS
+/*---------------------------------------*/
+/*---------------------------------------/*
+ # GENERIC
+/*---------------------------------------*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
+
+/*---------------------------------------/*
+ # ELEMENTS
+/*---------------------------------------*/
+/*
+    Elements: Page
+    ---
+    Default markup for page level elements
+*/
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "sofia-pro", sans-serif;
+  color: #495057;
+  scroll-behavior: smooth;
+  /* anti-aliasing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+    Customize the background color and color to match your design.
+*/
+::-moz-selection {
+  background: #7950f2;
+  color: white;
+}
+::selection {
+  background: #7950f2;
+  color: white;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: #212529;
+}
+
+h1 {
+  font-size: 2.2806973457rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin-bottom: 1.5rem;
+}
+
+ul,
+ol {
+  margin-left: 1rem;
+}
+
+::marker {
+  color: #7048e8;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.423828125rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+figcaption {
+  font-size: 0.8888888889rem;
+  line-height: 1rem;
+  margin-top: 0.75rem;
+  color: #adb5bd;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: #7048e8;
+  transition: all 0.1s ease-in-out;
+}
+
+a:visited {
+  color: #7048e8;
+}
+
+a:hover {
+  color: #7950f2;
+}
+
+a:active {
+  color: #6741d9;
+}
+
+/*---------------------------------------/*
+ # OBJECTS
+/*---------------------------------------*/
+/*
+    Objects: list reset
+    ---
+    Resets the default list styles
+*/
+.o-list-reset {
+  list-style: none;
+  margin-left: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: inherit;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row with padding
+*/
+.o-row {
+  padding: 1.5rem 1.5rem 0;
+  display: flow-root;
+}
+
+.o-row--top {
+  border-bottom: 1px solid #e9ecef;
+}
+
+@media (min-width: 48.0625em) {
+  .o-row--l {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 76.5rem;
+}
+@media (max-width: 48.0625em) {
+  .o-container {
+    max-width: 600px;
+  }
+}
+
+/*
+    Objects: Section
+    ---
+    Sections that follow each other get a margin-top
+*/
+.o-section + .o-section {
+  margin-top: 1.5rem;
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  flex-basis: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+.o-layout--gutter {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.o-layout--gutter-s {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.o-layout--gutter-s > .o-layout__item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.o-layout--gutter-l {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.o-layout--gutter-l > .o-layout__item {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* reverse horizontal row modifier */
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+/*
+  Components: Logo
+  ---
+  The logo component is used to display the logo of the site
+*/
+.c-logo {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.c-logo__link:-moz-any-link {
+  color: #212529;
+  text-decoration: none;
+}
+
+.c-logo__link:any-link {
+  color: #212529;
+  text-decoration: none;
+}
+
+/*
+  Components: Header
+  ---
+  The header component is used to display the header of the site
+*/
+.c-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 36.0625em) {
+  .c-header__nav {
+    display: none;
+  }
+}
+
+.c-header__menu {
+  margin-left: auto;
+}
+
+/*
+  Components: Nav
+  ---
+  The nav component is used to display the navigation of the site
+*/
+.c-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.c-nav__link:-moz-any-link {
+  color: #212529;
+  text-decoration: none;
+}
+
+.c-nav__link:any-link {
+  color: #212529;
+  text-decoration: none;
+}
+.c-nav__link:-moz-any-link:hover, .c-nav__item--active .c-nav__link:-moz-any-link {
+  color: #7048e8;
+}
+.c-nav__link:any-link:hover, .c-nav__item--active .c-nav__link:any-link {
+  color: #7048e8;
+}
+
+/*
+    Components: Buttons
+    ---
+    The button component is used to display buttons
+*/
+.c-button:-moz-any-link {
+  display: inline-block;
+  padding: calc(0.75rem - 1px) 1.5rem calc(0.75rem + 1px);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #edf2ff;
+  background-color: #7048e8;
+  -moz-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+.c-button,
+.c-button:any-link {
+  display: inline-block;
+  padding: calc(0.75rem - 1px) 1.5rem calc(0.75rem + 1px);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #edf2ff;
+  background-color: #7048e8;
+  transition: background-color 0.2s ease-in-out;
+}
+.c-button:-moz-any-link:hover {
+  background-color: #7048e8;
+}
+.c-button:hover,
+.c-button:any-link:hover {
+  background-color: #7048e8;
+}
+
+.c-button--block {
+  display: block;
+  width: 100%;
+}
+
+/*
+    Components: Button group
+    ---
+    The button group component is used to display a group of buttons
+*/
+.c-button-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/*
+    Components: Shopping bag
+    ---
+    The shopping bag component is used to display the shopping bag
+*/
+.c-bag {
+  position: relative;
+}
+
+.c-bag__count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  text-align: center;
+  width: 1rem;
+  height: 1rem;
+  line-height: 0.9rem;
+  border-radius: 50%;
+  background-color: #7048e8;
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+/*
+    Components: Icon button
+    ---
+    The icon button component is used to display a button with an icon
+*/
+.c-icon-button {
+  display: flex;
+  align-items: center;
+}
+
+/*---------------------------------------/*
+ # UTILITIES
+/*---------------------------------------*/
+/*
+    Utilities: Colors
+    ---
+    Utility classes to set the color of an element
+*/
+.u-color-meta {
+  color: #adb5bd;
+}
+
+/*
+    Utilities: Max widths
+    ---
+    max-width utility classes
+*/
+.u-max-width-s {
+  max-width: 31.25rem;
+}
+
+.u-max-width-m {
+  max-width: 60rem;
+}
+
+.u-max-width-l {
+  max-width: 87.5rem;
+}
+
+/*
+    Utitlities: whitespace
+    ---
+    Utility classes to put specific margins and padding onto elements
+*/
+.u-pt-clear {
+  padding-top: 0;
+}
+
+.u-mb-clear {
+  margin-bottom: 0;
+}
+
+.u-mb-s {
+  margin-bottom: 1rem;
+}
+
+.u-mb-xs {
+  margin-bottom: 0.75rem;
+}
+
+/*
+  Utilities: Font size
+  ---
+  Font size utility classes
+*/
+.u-ms-1 {
+  font-size: 0.8888888889rem;
+  line-height: 1.5rem;
+}
+
+/*
+  Utilities: rounded corners
+  ---
+  Rounded corners utility classes
+*/
+.u-rounded {
+  border-radius: 4px;
+}
+
+.u-rounded-m {
+  border-radius: 8px;
+}
+
+.u-rounded-l {
+  border-radius: 16px;
+}
+
+/*
+    Utilities: Widths
+    ---
+    Width utility classes
+*/
+.u-flex-basis-auto {
+  flex-basis: auto;
+}
+
+.u-1-of-2 {
+  flex-basis: 50% !important;
+}
+
+.u-2-of-2 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-3 {
+  flex-basis: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+  flex-basis: 66.6666666667% !important;
+}
+
+.u-3-of-3 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-4 {
+  flex-basis: 25% !important;
+}
+
+.u-2-of-4 {
+  flex-basis: 50% !important;
+}
+
+.u-3-of-4 {
+  flex-basis: 75% !important;
+}
+
+.u-4-of-4 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-5 {
+  flex-basis: 20% !important;
+}
+
+.u-2-of-5 {
+  flex-basis: 40% !important;
+}
+
+.u-3-of-5 {
+  flex-basis: 60% !important;
+}
+
+.u-4-of-5 {
+  flex-basis: 80% !important;
+}
+
+.u-5-of-5 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-6 {
+  flex-basis: 16.6666666667% !important;
+}
+
+.u-2-of-6 {
+  flex-basis: 33.3333333333% !important;
+}
+
+.u-3-of-6 {
+  flex-basis: 50% !important;
+}
+
+.u-4-of-6 {
+  flex-basis: 66.6666666667% !important;
+}
+
+.u-5-of-6 {
+  flex-basis: 83.3333333333% !important;
+}
+
+.u-6-of-6 {
+  flex-basis: 100% !important;
+}
+
+@media (min-width: 36.0625em) {
+  .u-1-of-2-bp1 {
+    flex-basis: 50% !important;
+  }
+  .u-2-of-2-bp1 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-3-bp1 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp1 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-3-of-3-bp1 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-4-bp1 {
+    flex-basis: 25% !important;
+  }
+  .u-2-of-4-bp1 {
+    flex-basis: 50% !important;
+  }
+  .u-3-of-4-bp1 {
+    flex-basis: 75% !important;
+  }
+  .u-4-of-4-bp1 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-5-bp1 {
+    flex-basis: 20% !important;
+  }
+  .u-2-of-5-bp1 {
+    flex-basis: 40% !important;
+  }
+  .u-3-of-5-bp1 {
+    flex-basis: 60% !important;
+  }
+  .u-4-of-5-bp1 {
+    flex-basis: 80% !important;
+  }
+  .u-5-of-5-bp1 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-6-bp1 {
+    flex-basis: 16.6666666667% !important;
+  }
+  .u-2-of-6-bp1 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-3-of-6-bp1 {
+    flex-basis: 50% !important;
+  }
+  .u-4-of-6-bp1 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-5-of-6-bp1 {
+    flex-basis: 83.3333333333% !important;
+  }
+  .u-6-of-6-bp1 {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width: 48.0625em) {
+  .u-1-of-2-bp2 {
+    flex-basis: 50% !important;
+  }
+  .u-2-of-2-bp2 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-3-bp2 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp2 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-3-of-3-bp2 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-4-bp2 {
+    flex-basis: 25% !important;
+  }
+  .u-2-of-4-bp2 {
+    flex-basis: 50% !important;
+  }
+  .u-3-of-4-bp2 {
+    flex-basis: 75% !important;
+  }
+  .u-4-of-4-bp2 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-5-bp2 {
+    flex-basis: 20% !important;
+  }
+  .u-2-of-5-bp2 {
+    flex-basis: 40% !important;
+  }
+  .u-3-of-5-bp2 {
+    flex-basis: 60% !important;
+  }
+  .u-4-of-5-bp2 {
+    flex-basis: 80% !important;
+  }
+  .u-5-of-5-bp2 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-6-bp2 {
+    flex-basis: 16.6666666667% !important;
+  }
+  .u-2-of-6-bp2 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-3-of-6-bp2 {
+    flex-basis: 50% !important;
+  }
+  .u-4-of-6-bp2 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-5-of-6-bp2 {
+    flex-basis: 83.3333333333% !important;
+  }
+  .u-6-of-6-bp2 {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width: 62.0625em) {
+  .u-1-of-2-bp3 {
+    flex-basis: 50% !important;
+  }
+  .u-2-of-2-bp3 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-3-bp3 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp3 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-3-of-3-bp3 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-4-bp3 {
+    flex-basis: 25% !important;
+  }
+  .u-2-of-4-bp3 {
+    flex-basis: 50% !important;
+  }
+  .u-3-of-4-bp3 {
+    flex-basis: 75% !important;
+  }
+  .u-4-of-4-bp3 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-5-bp3 {
+    flex-basis: 20% !important;
+  }
+  .u-2-of-5-bp3 {
+    flex-basis: 40% !important;
+  }
+  .u-3-of-5-bp3 {
+    flex-basis: 60% !important;
+  }
+  .u-4-of-5-bp3 {
+    flex-basis: 80% !important;
+  }
+  .u-5-of-5-bp3 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-6-bp3 {
+    flex-basis: 16.6666666667% !important;
+  }
+  .u-2-of-6-bp3 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-3-of-6-bp3 {
+    flex-basis: 50% !important;
+  }
+  .u-4-of-6-bp3 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-5-of-6-bp3 {
+    flex-basis: 83.3333333333% !important;
+  }
+  .u-6-of-6-bp3 {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width: 75.0625em) {
+  .u-1-of-2-bp4 {
+    flex-basis: 50% !important;
+  }
+  .u-2-of-2-bp4 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-3-bp4 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp4 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-3-of-3-bp4 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-4-bp4 {
+    flex-basis: 25% !important;
+  }
+  .u-2-of-4-bp4 {
+    flex-basis: 50% !important;
+  }
+  .u-3-of-4-bp4 {
+    flex-basis: 75% !important;
+  }
+  .u-4-of-4-bp4 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-5-bp4 {
+    flex-basis: 20% !important;
+  }
+  .u-2-of-5-bp4 {
+    flex-basis: 40% !important;
+  }
+  .u-3-of-5-bp4 {
+    flex-basis: 60% !important;
+  }
+  .u-4-of-5-bp4 {
+    flex-basis: 80% !important;
+  }
+  .u-5-of-5-bp4 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-6-bp4 {
+    flex-basis: 16.6666666667% !important;
+  }
+  .u-2-of-6-bp4 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-3-of-6-bp4 {
+    flex-basis: 50% !important;
+  }
+  .u-4-of-6-bp4 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-5-of-6-bp4 {
+    flex-basis: 83.3333333333% !important;
+  }
+  .u-6-of-6-bp4 {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width: 87.5625em) {
+  .u-1-of-2-bp5 {
+    flex-basis: 50% !important;
+  }
+  .u-2-of-2-bp5 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-3-bp5 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp5 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-3-of-3-bp5 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-4-bp5 {
+    flex-basis: 25% !important;
+  }
+  .u-2-of-4-bp5 {
+    flex-basis: 50% !important;
+  }
+  .u-3-of-4-bp5 {
+    flex-basis: 75% !important;
+  }
+  .u-4-of-4-bp5 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-5-bp5 {
+    flex-basis: 20% !important;
+  }
+  .u-2-of-5-bp5 {
+    flex-basis: 40% !important;
+  }
+  .u-3-of-5-bp5 {
+    flex-basis: 60% !important;
+  }
+  .u-4-of-5-bp5 {
+    flex-basis: 80% !important;
+  }
+  .u-5-of-5-bp5 {
+    flex-basis: 100% !important;
+  }
+  .u-1-of-6-bp5 {
+    flex-basis: 16.6666666667% !important;
+  }
+  .u-2-of-6-bp5 {
+    flex-basis: 33.3333333333% !important;
+  }
+  .u-3-of-6-bp5 {
+    flex-basis: 50% !important;
+  }
+  .u-4-of-6-bp5 {
+    flex-basis: 66.6666666667% !important;
+  }
+  .u-5-of-6-bp5 {
+    flex-basis: 83.3333333333% !important;
+  }
+  .u-6-of-6-bp5 {
+    flex-basis: 100% !important;
+  }
+}
